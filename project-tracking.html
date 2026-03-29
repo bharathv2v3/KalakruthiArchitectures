@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Tracking | 49 Belgravia | Kalakruthi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: var(--clr-light-gray); }
+        .dashboard-header { background: var(--glass-bg); padding: 1rem 2rem; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;}
+        
+        /* Tab functionality */
+        .tab-list { display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid #ddd; }
+        .tab-link { padding: 0.8rem 1.5rem; cursor: pointer; border-bottom: 3px solid transparent; font-weight: 600; margin-bottom: -2px; }
+        .tab-link.active { border-bottom-color: var(--clr-terra-cotta); color: var(--clr-terra-cotta); }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .progress-bar { width: 100%; background: #e0e0e0; border-radius: 10px; height: 12px; margin: 1rem 0; }
+        .progress-fill { height: 100%; background: var(--clr-terra-cotta); border-radius: 10px; width: 65%; }
+        
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+        .gallery-item { border-radius: 8px; overflow: hidden; height: 150px; background: #ddd; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="logo">
+            <a href="index.html" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="assets/yali.png" alt="Golden Yali Logo" class="yali-logo">
+                <h1>Kalakruthi<span class="dot">.</span></h1>
+            </a>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <span style="font-weight: 500;">Welcome, Anil V</span>
+            <a href="client-dashboard.html" class="btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">Back to Dashboard</a>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div style="padding: 0 2rem;">
+                <h3 style="color: var(--clr-gold); font-size: 1.2rem; font-family: var(--font-heading);">Client Portal</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="client-dashboard.html">Overview</a>
+                <a href="#" class="active">Active Projects</a>
+                <a href="#">Saved Quotes</a>
+                <a href="#">Documents</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem; font-family: var(--font-heading);">Project: 49 Belgravia</h2>
+            <p style="color: var(--clr-gray); margin-bottom: 2rem;">Estimated Handover: Dec 2026 | Overall Progress: 65%</p>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+
+            <!-- Tabs -->
+            <div class="tab-list">
+                <div class="tab-link active" onclick="switchTab(this, 'timeline')">Timeline & Execution</div>
+                <div class="tab-link" onclick="switchTab(this, 'metrics')">Metrics Dashboard</div>
+                <div class="tab-link" onclick="switchTab(this, 'transparency')">Open Book (Procurement & Margins)</div>
+            </div>
+
+            <!-- Tab 1: Timeline -->
+            <div id="timeline" class="tab-pane active">
+                <div class="dash-widget" style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--clr-dark); font-size: 1.3rem;">Engineering Excellence</h3>
+                    <p style="margin-top: 0.5rem; color: var(--clr-gray);">Deployed at site: Robotic Total Stations for laser-precise alignments, Hilti precision anchoring, and Drones for weekly topographical surveys.</p>
+                </div>
+                
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Construction Stages</h3>
+                <div class="timeline">
+                    <div class="timeline-item completed">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Foundation & Plinth</h4>
+                            <p style="color: var(--clr-gray); font-size: 0.9rem;">Isolated footings poured using ACC 53 Grade. Backfilling complete.</p>
+                            <span style="display:inline-block; margin-top:0.5rem; padding: 0.2rem 0.5rem; background: #e8f5e9; color: #2e7d32; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">100% Completed</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item completed">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Structural Framing (Ground & First)</h4>
+                            <p style="color: var(--clr-gray); font-size: 0.9rem;">Columns and Beams executed using TATA Tiscon 550D TMT. Laser-aligned by structural experts.</p>
+                            <span style="display:inline-block; margin-top:0.5rem; padding: 0.2rem 0.5rem; background: #e8f5e9; color: #2e7d32; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">100% Completed</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker" style="border-color: #ff9800;"></div>
+                        <div class="timeline-content">
+                            <h4>Blockwork Masonry</h4>
+                            <p style="color: var(--clr-gray); font-size: 0.9rem;">Standard Solid Concrete Blocks with M-Sand being laid.</p>
+                            <span style="display:inline-block; margin-top:0.5rem; padding: 0.2rem 0.5rem; background: #fff3e0; color: #ef6c00; border-radius: 4px; font-weight: bold; font-size: 0.8rem;">30% In Progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Metrics Dashboard -->
+            <div id="metrics" class="tab-pane">
+                <div class="dash-grid">
+                    <div class="chart-container" style="flex:1;">
+                        <h4 style="text-align: center; margin-bottom: 1rem;">Budget vs Actual Expenditure</h4>
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                    <div class="chart-container" style="flex:1;">
+                        <h4 style="text-align: center; margin-bottom: 1rem;">Material Quality Index</h4>
+                        <canvas id="qualityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Transparency & Procurement -->
+            <div id="transparency" class="tab-pane">
+                <div class="dash-widget">
+                    <h3 style="font-size: 1.5rem; color: var(--clr-dark);">Zero Fraud Guarantee: True Open Book</h3>
+                    <p style="margin-top: 1rem; line-height: 1.6;">At Kalakruthi, we believe in radical transparency. Below are the actual digitized procurement invoices from our vendors, ensuring you are never overcharged for materials. Our fixed service margin remains strictly at <strong>15%</strong> over material and labor cost.</p>
+                    
+                    <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Recent Procurement Bills</h4>
+                    <table class="calc-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Material / Vendor</th>
+                                <th>Original Bill Amount (₹)</th>
+                                <th>Kalakruthi Margin (15%)</th>
+                                <th>Total Billed (₹)</th>
+                                <th>View Invoice</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mar 28, 2026</td>
+                                <td>TATA Tiscon 550D TMT Rebar (Indus Steel Pvt. Ltd.)</td>
+                                <td>₹ 2,10,000</td>
+                                <td>₹ 31,500</td>
+                                <td>₹ 2,41,500</td>
+                                <td><a href="#" style="color: var(--clr-terra-cotta); font-weight: 500;">PDF &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td>Mar 20, 2026</td>
+                                <td>ACC 53 Grade Cement 400 Bags</td>
+                                <td>₹ 1,60,000</td>
+                                <td>₹ 24,000</td>
+                                <td>₹ 1,84,000</td>
+                                <td><a href="#" style="color: var(--clr-terra-cotta); font-weight: 500;">PDF &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td>Mar 15, 2026</td>
+                                <td>Structural Expert Audit (Tier-1 Consultants)</td>
+                                <td>₹ 45,000</td>
+                                <td>₹ 6,750</td>
+                                <td>₹ 51,750</td>
+                                <td><a href="#" style="color: var(--clr-terra-cotta); font-weight: 500;">PDF &rarr;</a></td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="calc-total-row">
+                            <tr>
+                                <td colspan="2" style="text-align: right;">Current Month Accumulation:</td>
+                                <td>₹ 4,15,000</td>
+                                <td>₹ 62,250</td>
+                                <td>₹ 4,77,250</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Tab switching logic
+        function switchTab(el, tabId) {
+            document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Chart.js Power BI Style Metrics
+        document.addEventListener('DOMContentLoaded', function() {
+            // Budget Chart (Bar)
+            const ctx1 = document.getElementById('budgetChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['Foundation', 'Structure', 'Masonry', 'Plastering', 'Interiors'],
+                    datasets: [
+                        { label: 'Budgeted (Lakhs)', data: [15, 25, 10, 8, 30], backgroundColor: '#8B0000' },
+                        { label: 'Actual (Lakhs)', data: [14.5, 25.2, 3, 0, 0], backgroundColor: '#E07A5F' }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Quality Chart (Polar Area or Radar to look advanced)
+            const ctx2 = document.getElementById('qualityChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'radar',
+                data: {
+                    labels: ['Structural Steel', 'Concrete Strength', 'Alignment Precision', 'Timeliness', 'Safety'],
+                    datasets: [{
+                        label: 'Kalakruthi Premium Standards',
+                        data: [98, 95, 100, 92, 99],
+                        backgroundColor: 'rgba(212, 175, 55, 0.4)',
+                        borderColor: '#D4AF37',
+                        pointBackgroundColor: '#1A1A1A'
+                    }, {
+                        label: 'Industry Average',
+                        data: [75, 80, 70, 65, 85],
+                        backgroundColor: 'rgba(150, 150, 150, 0.2)',
+                        borderColor: '#999',
+                        pointBackgroundColor: '#999'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

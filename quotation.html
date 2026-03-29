@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimate Calculator | Kalakruthi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .calc-section { padding: 8rem 0 4rem; background-color: var(--clr-sand); }
+        .calc-header { text-align: center; margin-bottom: 3rem; }
+        .calc-header p { max-width: 600px; margin: 1rem auto; color: var(--clr-gray); }
+        .calc-container { background: var(--clr-white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow-hover); max-width: 900px; margin: 0 auto; }
+        .input-row { display: flex; gap: 2rem; margin-bottom: 2rem; align-items: center; background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--clr-terra-cotta); }
+        .input-group { flex: 1; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+        .input-group input { width: 100%; padding: 0.8rem; font-size: 1.2rem; border: 1px solid #ccc; border-radius: 4px; }
+        .total-display { margin-top: 3rem; text-align: right; font-size: 2rem; border-top: 2px solid #ccc; padding-top: 1.5rem; }
+        .total-display span { font-family: var(--font-heading); font-weight: 700; color: var(--clr-terra-cotta); margin-left: 1rem; }
+    </style>
+</head>
+<body>
+    <header class="glass-header" id="navbar">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.8rem;">
+                    <img src="assets/yali.png" alt="Golden Yali Logo" class="yali-logo">
+                    <h1>Kalakruthi<span class="dot">.</span></h1>
+                </a>
+            </div>
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="philosophy.html">Philosophy</a></li>
+                    <li><a href="portal-login.html">Client Portal</a></li>
+                    <li><a href="quotation.html" class="btn-primary" style="background:transparent; color: var(--clr-terra-cotta);">Get Estimate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="calc-section">
+            <div class="container fade-in-up">
+                <div class="calc-header">
+                    <h2 class="section-title">Transparent Estimate Configurator</h2>
+                    <p>Customize your build parameters below. We exclusively use premium materials and high-tech engineering (e.g., TATA Tiscon 550D, Hilti Laser precision) ensuring absolute quality.</p>
+                </div>
+
+                <div class="calc-container">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="area">Proposed Built-Up Area (Sqft)</label>
+                            <input type="number" id="area" value="2000" min="500" step="100" onchange="calculateQuote()">
+                        </div>
+                        <div class="input-group">
+                            <p style="color: var(--clr-gray); font-size: 0.9rem;">The base package covers comprehensive planning, state-of-the-art structural auditing, execution and premium finishing.</p>
+                        </div>
+                    </div>
+
+                    <table class="calc-table">
+                        <thead>
+                            <tr>
+                                <th>Category / Premium Specification</th>
+                                <th>Base Cost per Sqft (₹)</th>
+                                <th>Est. Cost (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quote-body">
+                            <!-- Dynamic rows based on JS -->
+                        </tbody>
+                        <tfoot class="calc-total-row">
+                            <tr>
+                                <td colspan="2" style="text-align: right; padding-right: 2rem;">Subtotal (Construction Cost):</td>
+                                <td id="subtotal-val">₹ 0</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right; padding-right: 2rem; color: var(--clr-terra-cotta);">Kalakruthi Margin & Project Mgmt (Fixed 15%):</td>
+                                <td id="margin-val" style="color: var(--clr-terra-cotta);">₹ 0</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right; padding-right: 2rem; font-size: 1.2rem; border-top: 2px solid #ccc;">Estimated Grand Total:</td>
+                                <td id="total-val" style="font-size: 1.2rem; border-top: 2px solid #ccc; font-weight: 700;">₹ 0</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <button class="btn-primary" onclick="alert('Quotation configuration sent to your email and saved to your portal!')">Save & Send to Email</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const specs = [
+            { name: "Structural Foundation & Earthwork (Laser Leveled)", rate: 350 },
+            { name: "Cement & Steel (ACC/Ultratech & TATA Tiscon 550D TMT)", rate: 450 },
+            { name: "Blockwork & Plastering (Solid Concrete blocks with M/P Sand)", rate: 250 },
+            { name: "Kitchen (20mm Granite, SS Sink, Jaipur Faucets)", rate: 120 },
+            { name: "Bathrooms (Anti-Skid Tiles, Jaquar Sanitaryware up to ₹70k)", rate: 180 },
+            { name: "Doors & Windows (Teak Main Door, UPVC 3-Track Windows)", rate: 220 },
+            { name: "Finishing & Painting (2 Coats JK Putty, Asian Apex Exterior)", rate: 130 }
+        ];
+
+        function calculateQuote() {
+            const area = parseInt(document.getElementById('area').value) || 0;
+            const tbody = document.getElementById('quote-body');
+            tbody.innerHTML = '';
+
+            let subtotal = 0;
+
+            specs.forEach(spec => {
+                const cost = area * spec.rate;
+                subtotal += cost;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${spec.name}</td>
+                    <td>₹ ${spec.rate}</td>
+                    <td>₹ ${cost.toLocaleString('en-IN')}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const margin = subtotal * 0.15;
+            const total = subtotal + margin;
+
+            document.getElementById('subtotal-val').innerText = '₹ ' + subtotal.toLocaleString('en-IN');
+            document.getElementById('margin-val').innerText = '₹ ' + margin.toLocaleString('en-IN');
+            document.getElementById('total-val').innerText = '₹ ' + total.toLocaleString('en-IN');
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', calculateQuote);
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

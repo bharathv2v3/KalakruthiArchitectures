@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Philosophy | Kalakruthi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .phil-hero { padding: 10rem 0 6rem; background-color: var(--clr-dark); color: var(--clr-white); text-align: center; }
+        .phil-hero h2 { color: var(--clr-gold); font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .phil-hero p { max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: #ccc; }
+        
+        .phil-section { padding: var(--section-padding); background: var(--clr-sand); }
+        .phil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .phil-content h3 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--clr-deep-red); }
+        .phil-content p { font-size: 1.1rem; color: var(--clr-gray); margin-bottom: 1.5rem; line-height: 1.8; }
+        .phil-content ul { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .phil-content li { margin-bottom: 0.8rem; font-size: 1.05rem; position: relative; list-style-type: disc; color: var(--clr-gray); }
+
+        .image-box { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-hover); position: relative; }
+        .image-box img { width: 100%; display: block; filter: brightness(0.9); transition: transform 0.5s; }
+        .image-box:hover img { transform: scale(1.03); }
+
+        .trust-banner { background: var(--clr-terra-cotta); padding: 4rem 0; text-align: center; color: var(--clr-white); }
+        .trust-banner h3 { color: var(--clr-white); font-size: 2.5rem; margin-bottom: 1rem; }
+
+        @media (max-width: 900px) {
+            .phil-grid { grid-template-columns: 1fr; }
+            .phil-grid.reverse .image-box { order: -1; }
+        }
+    </style>
+</head>
+<body>
+    <header class="glass-header" id="navbar">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.8rem;">
+                    <img src="assets/yali.png" alt="Golden Yali Logo" class="yali-logo">
+                    <h1 style="color:var(--clr-white);">Kalakruthi<span class="dot" style="color:var(--clr-gold);">.</span></h1>
+                </a>
+            </div>
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" style="color:var(--clr-white);">Home</a></li>
+                    <li><a href="philosophy.html" style="color:var(--clr-gold);">Philosophy</a></li>
+                    <li><a href="portal-login.html" style="color:var(--clr-white);">Client Portal</a></li>
+                    <li><a href="quotation.html" class="btn-primary" style="background:#fff; color:var(--clr-dark); border:none;">Get Estimate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="phil-hero fade-in-up">
+            <div class="container">
+                <h2>Redefining Trust in Construction</h2>
+                <p>We are a highly specialized engineering hub orchestrating the nation's top talents. No generalists, no hidden fees. Just precision, openness, and an unwavering commitment to your sanctuary.</p>
+            </div>
+        </section>
+
+        <!-- Section 1: Exculsive Collaborative Network -->
+        <section class="phil-section">
+            <div class="container phil-grid fade-in-up">
+                <div class="phil-content">
+                    <h3>The Exclusive Collaborative Network</h3>
+                    <p>In the construction industry, true excellence isn't achieved by a single "jack-of-all-trades" contractor. The finest architectural structures demand specialized mastery at every stage.</p>
+                    <p>Instead of relying on an in-house generalist workforce, Kalakruthi acts as an <strong>Expert Orchestrator</strong>. We outsource specialized engineering design, tier-1 structural auditing, and specialized labor contracts strictly to highly-paid, well-known domain experts in the industry.</p>
+                    <ul>
+                        <li><strong>Specialized Mastery:</strong> A designated luxury masonry expert won't do plumbing. You get the A-Team for every discrete phase.</li>
+                        <li><strong>Zero Compromise:</strong> We absorb the premium cost of these elite agencies without bloating your bill due to our fixed-margin model.</li>
+                    </ul>
+                </div>
+                <div class="image-box">
+                    <img src="assets/hero_indian_modern.png" alt="Collaborative Engineering Network">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Technology First -->
+        <section class="phil-section" style="background-color: var(--clr-white);">
+            <div class="container phil-grid reverse fade-in-up">
+                <div class="image-box">
+                    <img src="assets/TheBuildProject.PNG" alt="Tech Enabled Construction">
+                </div>
+                <div class="phil-content">
+                    <h3>Pioneering High-Tech Construction</h3>
+                    <p>We are a technology-first enterprise. The days of string-and-plumb-bob alignments are over. Our sites look less like traditional labor camps and more like advanced manufacturing floors.</p>
+                    <ul>
+                        <li><strong>Hilti & Leica Lasers:</strong> Using Robotic Total Stations for sub-millimeter precision in structural alignments.</li>
+                        <li><strong>Drone Topography:</strong> Aerial mapping ensuring optimal spatial utilization and weekly progress scans.</li>
+                        <li><strong>Automated Rebar Tying & Curing:</strong> Using IoT sensors to monitor concrete curing temperatures ensures structural integrity lasts lifetimes.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Open Book Transparency -->
+        <section class="phil-section">
+            <div class="container phil-grid fade-in-up">
+                <div class="phil-content">
+                    <h3>Pure Open-Book Transparency (Max 15%)</h3>
+                    <p>Trust is our foundational material. We abhor the industry standard of hidden markups and surprise "price hikes."</p>
+                    <p>We operate on a strict <strong>15% fixed overhead & management margin</strong>. What does this mean for you?</p>
+                    <ul>
+                        <li><strong>Vendor Direct Pass-Through:</strong> When we procure TATA Tiscon 550D TMT, we upload the raw factory invoice to your Client Portal.</li>
+                        <li><strong>Zero Friction, Zero Fraud:</strong> If a material's market cost drops, your bill drops. We don't pocket the difference. </li>
+                        <li><strong>Friendly Relations:</strong> By removing the financial opacity, we sit on the same side of the table as you, focusing purely on building the best home possible.</li>
+                    </ul>
+                </div>
+                <div class="image-box">
+                    <img src="assets/tc_2.png" alt="Transparency in construction">
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner -->
+        <section class="trust-banner fade-in-up">
+            <div class="container">
+                <h3>Built on Openness, Delivered with Precision.</h3>
+                <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem;">Ready to experience a stress-free journey to your dream home?</p>
+                <a href="quotation.html" class="btn-primary" style="background-color: var(--clr-white); color: var(--clr-terra-cotta); font-weight: 700;">Start Your Estimate Configuration</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Kalakruthi<span class="dot">.</span></h2>
+                <p>Building timeless homes rooted in Indian heritage and elevated by modern design and absolute trust.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: hello@kalakruthi.com</p>
+                <p>Phone: +91 99029 14735</p>
+                <p>Location: Bangalore, India</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

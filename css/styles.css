@@ -806,3 +806,312 @@ ul {
         font-size: 1rem;
     }
 }
+
+/* --- Sub-Brands Ecosystem Section --- */
+.brands-section {
+    padding: var(--section-padding);
+    background-color: var(--clr-sand);
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.brand-card {
+    background: var(--clr-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.brand-img {
+    height: 350px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.brand-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.8s ease;
+}
+
+.brand-card:hover .brand-img img {
+    transform: scale(1.05);
+}
+
+.brand-content {
+    padding: 2.5rem;
+    flex-grow: 1;
+    position: relative;
+    border-top: 4px solid transparent;
+}
+
+/* Inferring colors from the images described implicitly. */
+.bg-build {
+    border-top-color: #1A5FA5; /* Deep Blue tech feel */
+}
+
+.bg-kensora {
+    border-top-color: #A3885F; /* Luxurious Gold/Tan feel */
+}
+
+.brand-badge {
+    position: absolute;
+    top: -15px;
+    left: 2.5rem;
+    background: var(--clr-dark);
+    color: var(--clr-white);
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.brand-content h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.brand-content p {
+    color: var(--clr-gray);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* --- Client Portal Forms & Dashboard --- */
+.portal-hero {
+    padding: 10rem 0 4rem;
+    background-color: var(--clr-sand);
+    text-align: center;
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--clr-white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-hover);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--clr-dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--clr-terra-cotta);
+    box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.2);
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    min-height: calc(100vh - 80px); /* accounting for header */
+}
+
+.sidebar {
+    width: 280px;
+    background: var(--clr-dark);
+    color: var(--clr-white);
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    margin-top: 2rem;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 1rem 2rem;
+    color: var(--clr-light-gray);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background: rgba(255,255,255,0.1);
+    border-left: 4px solid var(--clr-terra-cotta);
+    color: var(--clr-white);
+    padding-left: 2rem;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 3rem;
+    background: var(--clr-light-gray);
+}
+
+/* Dashboard Cards */
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.dash-widget {
+    background: var(--clr-white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.dash-widget h3 {
+    font-size: 1.2rem;
+    color: var(--clr-gray);
+    margin-bottom: 0.5rem;
+}
+
+.dash-widget .stat {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--clr-terra-cotta);
+}
+
+/* Power BI Style Metrics Chart container */
+.chart-container {
+    background: var(--clr-white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: 2rem;
+    position: relative;
+    height: 400px;
+}
+
+/* Gantt/Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 4px;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 2rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--clr-white);
+    border: 4px solid var(--clr-terra-cotta);
+    z-index: 1;
+}
+
+.timeline-item.completed .timeline-marker {
+    background: var(--clr-terra-cotta);
+}
+
+.timeline-content {
+    background: var(--clr-white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.timeline-content h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Quotation Calculator Table */
+.calc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background: var(--clr-white);
+    box-shadow: var(--shadow-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.calc-table th, .calc-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.calc-table th {
+    background: var(--clr-dark);
+    color: var(--clr-white);
+    font-weight: 500;
+}
+
+.calc-table tr:last-child td {
+    border-bottom: none;
+}
+
+.calc-total-row {
+    background: var(--clr-sand);
+    font-weight: 700;
+}
+
+.input-sm {
+    width: 100px;
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .brands-grid { grid-template-columns: 1fr; }
+    .dashboard-container { flex-direction: column; }
+    .sidebar { width: 100%; }
+    .main-content { padding: 1.5rem; }
+}

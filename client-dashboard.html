@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard | Kalakruthi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { background-color: var(--clr-light-gray); }
+        .dashboard-header { background: var(--glass-bg); padding: 1rem 2rem; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;}
+    </style>
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="logo">
+            <a href="index.html" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="assets/yali.png" alt="Golden Yali Logo" class="yali-logo">
+                <h1>Kalakruthi<span class="dot">.</span></h1>
+            </a>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <span style="font-weight: 500;">Welcome, Anil V</span>
+            <a href="portal-login.html" class="btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">Sign Out</a>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div style="padding: 0 2rem;">
+                <h3 style="color: var(--clr-gold); font-size: 1.2rem; font-family: var(--font-heading);">Client Portal</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active">Overview</a>
+                <a href="project-tracking.html">Active Projects</a>
+                <a href="#">Saved Quotes</a>
+                <a href="#">Documents</a>
+                <a href="#">Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h2 style="margin-bottom: 2rem; font-size: 2.5rem;">Dashboard Overview</h2>
+            
+            <div class="dash-grid">
+                <div class="dash-widget">
+                    <h3>Active Projects</h3>
+                    <div class="stat">1</div>
+                    <p style="color: var(--clr-gray); margin-top: 1rem;">49 Belgravia (In Progress)</p>
+                    <a href="project-tracking.html" class="btn-primary" style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.9rem;">View Progress</a>
+                </div>
+                <div class="dash-widget">
+                    <h3>Pending Quotes</h3>
+                    <div class="stat">0</div>
+                    <p style="color: var(--clr-gray); margin-top: 1rem;">No pending approvals.</p>
+                </div>
+                <div class="dash-widget">
+                    <h3>Total Invoices Paid</h3>
+                    <div class="stat">₹ 45L</div>
+                    <p style="color: var(--clr-gray); margin-top: 1rem;">Next milestone: Finishing Stage</p>
+                </div>
+            </div>
+
+            <div class="chart-container" style="height: auto; padding-bottom: 3rem;">
+                <h3 style="margin-bottom: 1rem;">Recent Activity</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 1rem 0; border-bottom: 1px solid #eee;">
+                        <strong>Today:</strong> Drone site scan completed for 49 Belgravia. <a href="#" style="color: var(--clr-terra-cotta);">View 3D map</a>
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid #eee;">
+                        <strong>Yesterday:</strong> TATA Tiscon 550D TMT Rebar delivery verified via Hilti digital log.
+                    </li>
+                    <li style="padding: 1rem 0; border-bottom: 1px solid #eee;">
+                        <strong>3 days ago:</strong> Slab 1 pour completed using ACC Supercrete. Quality checks passed.
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
